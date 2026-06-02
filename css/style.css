@@ -1125,6 +1125,37 @@ footer p {
         height: 320px;
     }
 
+    /* Indicación táctil: las imágenes de pasos son interactivas */
+    .paso-card {
+        position: relative;
+    }
+
+    .paso-card::after {
+        content: "Presiona la imagen";
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        background-color: #E67E22;
+        color: #F8F9FA;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.80rem;
+        font-weight: bold;
+        z-index: 2;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .paso-card:hover::after,
+    .paso-card:active::after,
+    .paso-card:focus-within::after {
+        display: none;
+    }
+
+    .paso-card:active .paso-overlay,
+    .paso-card:focus-within .paso-overlay {
+        opacity: 1;
+    }
+
     .formulario {
         padding: 22px;
     }
