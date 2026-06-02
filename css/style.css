@@ -110,20 +110,13 @@ body {
     border-bottom: 4px solid #E67E22;
 }
 
-/* Navbar institucional de index.html — degradado horizontal refinado */
+/* Navbar institucional — fondo claro en todas las resoluciones */
 .navbar-institucional {
     padding: 0 50px;
-    background: linear-gradient(
-        90deg,
-        #F8F9FA 0%,
-        #F8F9FA 38%,
-        #DCE3E7 58%,
-        #2C3E50 85%,
-        #2C3E50 100%
-    );
+    background: #F8F9FA;
 }
 
-/* Bloque de logos oficiales (zona clara e intermedia del degradado) */
+/* Bloque de logos oficiales */
 .navbar-logos {
     display: flex;
     align-items: center;
@@ -158,7 +151,7 @@ body {
     max-height: 60px;
 }
 
-/* Menú alineado a la derecha sobre la zona oscura del degradado */
+/* Menú alineado a la derecha */
 .navbar-institucional .menu {
     margin-left: auto;
 }
@@ -188,8 +181,8 @@ body {
 
 .menu li a {
     text-decoration: none;
-    /* Neutral #F8F9FA — texto del menú */
-    color: #F8F9FA;
+    /* Secondary #2C3E50 — texto del menú sobre fondo claro */
+    color: #2C3E50;
     font-size: 15px;
     transition: 0.3s;
     display: block;
@@ -226,6 +219,7 @@ body {
 .submenu li a {
     padding: 10px 20px;
     font-size: 14px;
+    color: #F8F9FA;
 }
 
 .submenu li a:hover {
@@ -914,4 +908,269 @@ footer {
 footer p {
     font-size: 0.95rem;
     color: #ccc;
+}
+
+/* ============================================================
+   DISEÑO RESPONSIVE — Tablet (≤900px) y celular (≤600px)
+   Los estilos de escritorio arriba no se modifican.
+   Solo se sobrescriben reglas dentro de estas media queries.
+   ============================================================ */
+
+/* --- Tablet --- */
+@media (max-width: 900px) {
+
+    /* Permite que el sitio se adapte sin el ancho mínimo de escritorio */
+    body {
+        min-width: 0;
+    }
+
+    /* Imágenes fluidas en pantallas pequeñas */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Navbar: logos arriba, menú abajo (sin menú hamburguesa) */
+    .navbar,
+    .navbar-institucional {
+        height: auto;
+        min-height: 120px;
+        padding: 12px 20px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .navbar-logos {
+        padding-left: 0;
+    }
+
+    .navbar-logos-link {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .navbar-logos .logo-educacion {
+        max-height: 34px;
+    }
+
+    .navbar-logos .logo-tecnm {
+        max-height: 44px;
+    }
+
+    .navbar-logos .logo-itch {
+        max-height: 48px;
+    }
+
+    /* Centra el menú cuando el navbar es vertical */
+    .navbar-institucional .menu {
+        margin-left: 0;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .menu li a {
+        font-size: 14px;
+        padding: 6px 4px;
+    }
+
+    /* Submenú: también se abre con focus (útil en pantallas táctiles) */
+    .menu > li:focus-within .submenu {
+        display: block;
+    }
+
+    /* Compensa el navbar fijo más alto en móvil/tablet */
+    .pagina {
+        padding: 180px 25px 50px;
+    }
+
+    /* Hero de index.html */
+    .hero {
+        height: auto;
+        min-height: 520px;
+        padding: 180px 20px 50px;
+    }
+
+    .contenido h1 {
+        font-size: 2.8rem;
+    }
+
+    .texto-legal {
+        font-size: 1rem;
+    }
+
+    /* Grids: de 3 columnas a 2 */
+    .topicos-grid,
+    .pasos-grid,
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards {
+        padding: 50px 25px;
+    }
+
+    /* Imágenes de pasos un poco más bajas */
+    .paso-card img {
+        height: 360px;
+    }
+
+    /* Formularios en una columna */
+    .formulario {
+        padding: 28px;
+    }
+
+    .fila-dos {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .botones-formulario {
+        flex-wrap: wrap;
+    }
+
+    /* Sede: datos y mapa apilados */
+    .sede-info {
+        flex-direction: column;
+    }
+
+    .sede-mapa {
+        min-height: 320px;
+    }
+
+    .sede-mapa iframe {
+        min-height: 320px;
+    }
+
+    /* Tablas: scroll horizontal si no caben */
+    .tabla-datos {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Página de éxito */
+    .exito {
+        padding: 180px 25px 60px;
+    }
+}
+
+/* --- Celular --- */
+@media (max-width: 600px) {
+
+    .navbar,
+    .navbar-institucional {
+        padding: 10px 12px;
+    }
+
+    .navbar-logos-link {
+        gap: 10px;
+    }
+
+    .navbar-logos .logo-educacion {
+        max-height: 26px;
+    }
+
+    .navbar-logos .logo-tecnm {
+        max-height: 34px;
+    }
+
+    .navbar-logos .logo-itch {
+        max-height: 38px;
+    }
+
+    .menu {
+        gap: 6px;
+    }
+
+    .menu li a {
+        font-size: 13px;
+        padding: 5px 3px;
+    }
+
+    .pagina {
+        padding: 190px 18px 45px;
+    }
+
+    .hero {
+        min-height: 460px;
+        padding: 190px 18px 40px;
+    }
+
+    .contenido h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .texto-legal {
+        font-size: 0.95rem;
+    }
+
+    /* Grids: una sola columna */
+    .topicos-grid,
+    .pasos-grid,
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        padding: 40px 18px;
+    }
+
+    .paso-card img {
+        height: 320px;
+    }
+
+    .formulario {
+        padding: 22px;
+    }
+
+    .botones-formulario {
+        flex-direction: column;
+    }
+
+    .botones-formulario .btn {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Logo y textos del index */
+    .logo-congreso img {
+        width: 90%;
+    }
+
+    .evento-titulo {
+        font-size: 1.05rem;
+    }
+
+    .evento-detalles {
+        font-size: 1rem;
+    }
+
+    .texto-centrado,
+    .texto-rojo {
+        font-size: 1rem;
+    }
+
+    /* Footer más compacto */
+    footer {
+        padding: 22px 18px;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .exito {
+        padding: 190px 18px 50px;
+    }
+
+    .exito h1 {
+        font-size: 1.6rem;
+    }
 }
