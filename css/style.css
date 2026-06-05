@@ -4,6 +4,44 @@
    HTML + CSS vanilla. Diseño pensado para escritorio.
    ============================================================ */
 
+/* --- Variables de color (paleta del sitio) --- */
+:root {
+    /* Colores principales */
+    --color-azul-principal: #2C3E50;
+    --color-naranja: #E67E22;
+    --color-fondo-claro: #F8F9FA;
+    --color-fondo-secundario: #DCE3E7;
+    --color-texto: #333333;
+    --color-blanco: #FFFFFF;
+
+    /* Variaciones usadas en botones, títulos y fondos */
+    --color-fondo-pagina: #f4f4f4;
+    --color-texto-negro: #000000;
+    --color-alerta-rojo: #ff0000;
+    --color-naranja-hover: #cf6f1d;
+    --color-azul-oscuro: #1f2d3a;
+    --color-azul-titulos: #0c2d57;
+    --color-gris-boton: #7F8C8D;
+    --color-dorado: #c9a227;
+    --color-texto-medio: #555555;
+    --color-texto-parrafo: #444444;
+    --color-texto-suave: #666666;
+    --color-borde-claro: #e0e0e0;
+    --color-borde-formulario: #dddddd;
+    --color-fondo-hover-acordeon: #eef2f4;
+    --color-texto-footer: #cccccc;
+
+    /* Transparencias y sombras */
+    --color-overlay-paso: rgba(44, 62, 80, 0.92);
+    --color-naranja-suave: rgba(230, 126, 34, 0.2);
+    --sombra-oscura: rgba(0, 0, 0, 0.3);
+    --sombra-media: rgba(0, 0, 0, 0.15);
+    --sombra-suave: rgba(0, 0, 0, 0.1);
+    --sombra-muy-suave: rgba(0, 0, 0, 0.08);
+    --sombra-ligera: rgba(0, 0, 0, 0.06);
+    --sombra-tarjeta: rgba(0, 0, 0, 0.10);
+}
+
 /* --- Reset: elimina márgenes y bordes por defecto del navegador --- */
 * {
     margin: 0;
@@ -13,8 +51,8 @@
 }
 
 body {
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--color-fondo-pagina);
+    color: var(--color-texto);
     min-width: 1024px;
 }
 
@@ -22,7 +60,7 @@ body {
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #000000;
+    color: var(--color-texto-negro);
     margin-bottom: 20px;
     margin-top: 20px;
     margin-left: 20px;
@@ -30,7 +68,7 @@ body {
 }
 
 .texto-rojo {
-    color: #ff0000;
+    color: var(--color-alerta-rojo);
     font-weight: bold;
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -59,14 +97,14 @@ body {
 .evento-titulo {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #2C3E50;
+    color: var(--color-azul-principal);
     margin-bottom: 8px;
 }
 
 .evento-detalles {
     font-size: 1.15rem;
     font-weight: bold;
-    color: #333333;
+    color: var(--color-texto);
     line-height: 1.5;
 }
 
@@ -97,8 +135,8 @@ body {
 .navbar {
     width: 100%;
     height: 110px;
-    /* Secondary #2C3E50 — fondo base del navbar (páginas internas) */
-    background-color: #2C3E50;
+    /* Azul principal (--color-azul-principal) — fondo base del navbar (páginas internas) */
+    background-color: var(--color-azul-principal);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -106,14 +144,14 @@ body {
     position: fixed;
     top: 0;
     z-index: 1000;
-    /* Primary #E67E22 — borde inferior institucional */
-    border-bottom: 4px solid #E67E22;
+    /* Naranja institucional (--color-naranja) — borde inferior institucional */
+    border-bottom: 4px solid var(--color-naranja);
 }
 
 /* Navbar institucional — fondo claro en todas las resoluciones */
 .navbar-institucional {
     padding: 0 50px;
-    background: #F8F9FA;
+    background: var(--color-fondo-claro);
 }
 
 /* Bloque de logos oficiales */
@@ -162,8 +200,8 @@ body {
 }
 
 .logo h2 {
-    /* Neutral #F8F9FA — texto del logo ITCH en el menú */
-    color: #F8F9FA;
+    /* Fondo claro (--color-fondo-claro) — texto del logo ITCH en el menú */
+    color: var(--color-fondo-claro);
     font-size: 32px;
     letter-spacing: 2px;
 }
@@ -181,8 +219,8 @@ body {
 
 .menu li a {
     text-decoration: none;
-    /* Secondary #2C3E50 — texto del menú sobre fondo claro */
-    color: #2C3E50;
+    /* Azul principal (--color-azul-principal) — texto del menú sobre fondo claro */
+    color: var(--color-azul-principal);
     font-size: 15px;
     transition: 0.3s;
     display: block;
@@ -191,8 +229,8 @@ body {
 
 .menu li a:hover,
 .menu li a.activo {
-    /* Secondary #E67E22 — hover y enlace activo */
-    color: #E67E22;
+    /* Naranja institucional (--color-naranja) — hover y enlace activo */
+    color: var(--color-naranja);
 }
 
 /* Submenú de segundo nivel (Registro) */
@@ -201,14 +239,14 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    /* Tertiary #2C3E50 — fondo del submenú Registro */
-    background-color: #2C3E50;
+    /* Azul principal (--color-azul-principal) — fondo del submenú Registro */
+    background-color: var(--color-azul-principal);
     list-style: none;
     min-width: 240px;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px var(--sombra-oscura);
     padding: 8px 0;
-    border: 1px solid #2C3E50;
+    border: 1px solid var(--color-azul-principal);
     border-top: none;
 }
 
@@ -219,13 +257,13 @@ body {
 .submenu li a {
     padding: 10px 20px;
     font-size: 14px;
-    color: #F8F9FA;
+    color: var(--color-fondo-claro);
 }
 
 .submenu li a:hover {
-    /* Secondary #E67E22 — resaltado en submenú */
-    background-color: rgba(230, 126, 34, 0.2);
-    color: #E67E22;
+    /* Naranja institucional (--color-naranja) — resaltado en submenú */
+    background-color: var(--color-naranja-suave);
+    color: var(--color-naranja);
 }
 
 /* ============================================================
@@ -236,7 +274,7 @@ body {
     width: 100%;
     height: 100vh;
     /* Fondo claro igual al resto del sitio (sin imagen ni capa oscura) */
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo-pagina);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -250,8 +288,8 @@ body {
 }
 
 .contenido h1 {
-    /* Secondary #2C3E50 — título legible sobre fondo claro */
-    color: #2C3E50;
+    /* Azul principal (--color-azul-principal) — título legible sobre fondo claro */
+    color: var(--color-azul-principal);
     font-size: 4rem;
     font-weight: 900;
     line-height: 1.1;
@@ -259,13 +297,13 @@ body {
     margin-bottom: 25px;
     text-transform: uppercase;
     text-shadow: none;
-    /* Primary #E67E22 — acento institucional bajo el título */
-    border-bottom: 5px solid #E67E22;
+    /* Naranja institucional (--color-naranja) — acento institucional bajo el título */
+    border-bottom: 5px solid var(--color-naranja);
     padding-bottom: 20px;
 }
 
 .texto-legal {
-    color: #333333;
+    color: var(--color-texto);
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 40px;
@@ -280,8 +318,8 @@ body {
 }
 
 .btn {
-    background-color: #E67E22;
-    color: #F8F9FA;
+    background-color: var(--color-naranja);
+    color: var(--color-fondo-claro);
     padding: 16px 40px;
     border-radius: 10px;
     text-decoration: none;
@@ -295,35 +333,35 @@ body {
 
 .btn:hover {
     transform: translateY(-3px);
-    background-color: #cf6f1d;
-    color: #F8F9FA;
+    background-color: var(--color-naranja-hover);
+    color: var(--color-fondo-claro);
 }
 
 .btn-secundario {
-    background-color: #2C3E50;
-    color: #F8F9FA;
+    background-color: var(--color-azul-principal);
+    color: var(--color-fondo-claro);
 }
 
 .btn-secundario:hover {
-    background-color: #1f2d3a;
-    color: #F8F9FA;
+    background-color: var(--color-azul-oscuro);
+    color: var(--color-fondo-claro);
 }
 
 /* Evita que .pagina a sobrescriba el color de los botones-enlace */
 .pagina a.btn,
 .pagina a.btn:hover {
-    color: #F8F9FA;
+    color: var(--color-fondo-claro);
     text-decoration: none;
 }
 
 .btn-limpiar {
-    background-color: #7F8C8D;
-    color: #F8F9FA;
+    background-color: var(--color-gris-boton);
+    color: var(--color-fondo-claro);
 }
 
 .btn-limpiar:hover {
-    background-color: #2C3E50;
-    color: #F8F9FA;
+    background-color: var(--color-azul-principal);
+    color: var(--color-fondo-claro);
 }
 
 /* ============================================================
@@ -339,10 +377,10 @@ body {
 }
 
 .card {
-    background-color: white;
+    background-color: var(--color-blanco);
     padding: 35px 28px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--sombra-suave);
     text-align: center;
     transition: 0.3s;
 }
@@ -352,19 +390,19 @@ body {
 }
 
 .card h3 {
-    color: #0c2d57;
+    color: var(--color-azul-titulos);
     font-size: 24px;
     margin-bottom: 12px;
 }
 
 .card p {
-    color: #555;
+    color: var(--color-texto-medio);
     line-height: 1.5;
     margin-bottom: 18px;
 }
 
 .card a {
-    color: #c9a227;
+    color: var(--color-dorado);
     font-weight: bold;
     text-decoration: none;
 }
@@ -384,10 +422,10 @@ body {
 }
 
 .pagina h1 {
-    color: #0c2d57;
+    color: var(--color-azul-titulos);
     font-size: 2.5rem;
     margin-bottom: 10px;
-    border-bottom: 4px solid #c9a227;
+    border-bottom: 4px solid var(--color-dorado);
     padding-bottom: 15px;
 }
 
@@ -395,12 +433,12 @@ body {
     max-width: 800px;
     margin: 0 auto 30px;
     text-align: center;
-    color: #555;
+    color: var(--color-texto-medio);
     font-size: 1.1rem;
 }
 
 .pagina h2 {
-    color: #0c2d57;
+    color: var(--color-azul-titulos);
     font-size: 1.5rem;
     margin: 30px 0 15px;
 }
@@ -408,37 +446,37 @@ body {
 .pagina p {
     line-height: 1.7;
     margin-bottom: 15px;
-    color: #444;
+    color: var(--color-texto-parrafo);
 }
 
 .pagina ul,
 .pagina ol {
     margin: 15px 0 15px 30px;
     line-height: 1.8;
-    color: #444;
+    color: var(--color-texto-parrafo);
 }
 
 .pagina a {
-    color: #2C3E50;
+    color: var(--color-azul-principal);
     font-weight: bold;
 }
 
 .pagina a:hover {
-    color: #E67E22;
+    color: var(--color-naranja);
 }
 
 .info-box {
-    background-color: white;
-    /* Primary #E67E22 — acento lateral institucional */
-    border-left: 5px solid #E67E22;
+    background-color: var(--color-blanco);
+    /* Naranja institucional (--color-naranja) — acento lateral institucional */
+    border-left: 5px solid var(--color-naranja);
     padding: 20px 25px;
     margin: 25px 0;
     border-radius: 0 8px 8px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px var(--sombra-muy-suave);
 }
 
 .info-box strong {
-    color: #2C3E50;
+    color: var(--color-azul-principal);
 }
 
 /* ============================================================
@@ -453,21 +491,21 @@ body {
 }
 
 .topico-card {
-    background-color: white;
+    background-color: var(--color-blanco);
     padding: 28px;
     border-radius: 12px;
-    /* Primary #E67E22 — acento superior institucional */
-    border-top: 5px solid #E67E22;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    /* Naranja institucional (--color-naranja) — acento superior institucional */
+    border-top: 5px solid var(--color-naranja);
+    box-shadow: 0 4px 12px var(--sombra-tarjeta);
 }
 
 .topico-card h3 {
-    /* Secondary #2C3E50 — título de cada área temática */
-    color: #2C3E50;
+    /* Azul principal (--color-azul-principal) — título de cada área temática */
+    color: var(--color-azul-principal);
     font-size: 1.15rem;
     margin-bottom: 15px;
     line-height: 1.3;
-    border-bottom: 3px solid #E67E22;
+    border-bottom: 3px solid var(--color-naranja);
     padding-bottom: 10px;
 }
 
@@ -489,30 +527,30 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 10px var(--sombra-muy-suave);
     border-radius: 8px;
     overflow: hidden;
-    /* Primary #E67E22 — acento superior institucional */
-    border-top: 5px solid #E67E22;
+    /* Naranja institucional (--color-naranja) — acento superior institucional */
+    border-top: 5px solid var(--color-naranja);
 }
 
 .tabla-datos th,
 .tabla-datos td {
     padding: 14px 20px;
     text-align: left;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--color-borde-claro);
 }
 
 .tabla-datos th {
-    /* Secondary #2C3E50 — encabezado de tabla */
-    background-color: #2C3E50;
-    color: #F8F9FA;
+    /* Azul principal (--color-azul-principal) — encabezado de tabla */
+    background-color: var(--color-azul-principal);
+    color: var(--color-fondo-claro);
 }
 
 .tabla-datos td:first-child {
     font-weight: bold;
-    color: #2C3E50;
+    color: var(--color-azul-principal);
 }
 
 .tabla-datos tr:last-child td {
@@ -520,7 +558,7 @@ body {
 }
 
 .tabla-datos tr:nth-child(even) {
-    background-color: #F8F9FA;
+    background-color: var(--color-fondo-claro);
 }
 
 /* Botones de descarga en Call FP */
@@ -533,7 +571,7 @@ body {
 
 .texto-ayuda {
     margin-top: 12px;
-    color: #555;
+    color: var(--color-texto-medio);
     font-size: 0.95rem;
     text-align: center;
     max-width: 700px;
@@ -546,12 +584,12 @@ body {
    ============================================================ */
 
 .formulario {
-    background-color: white;
+    background-color: var(--color-blanco);
     padding: 35px 40px;
     border-radius: 12px;
-    /* Primary #E67E22 — acento superior institucional */
-    border-top: 5px solid #E67E22;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+    /* Naranja institucional (--color-naranja) — acento superior institucional */
+    border-top: 5px solid var(--color-naranja);
+    box-shadow: 0 4px 15px var(--sombra-tarjeta);
     margin-top: 20px;
 }
 
@@ -562,7 +600,7 @@ body {
 .grupo-campo label {
     display: block;
     font-weight: bold;
-    color: #2C3E50;
+    color: var(--color-azul-principal);
     margin-bottom: 6px;
 }
 
@@ -571,18 +609,18 @@ body {
 .grupo-campo textarea {
     width: 100%;
     padding: 12px 14px;
-    border: 2px solid #ddd;
+    border: 2px solid var(--color-borde-formulario);
     border-radius: 8px;
     font-size: 16px;
-    background-color: #F8F9FA;
+    background-color: var(--color-fondo-claro);
 }
 
 .grupo-campo input:focus,
 .grupo-campo select:focus,
 .grupo-campo textarea:focus {
     outline: none;
-    border-color: #E67E22;
-    background-color: white;
+    border-color: var(--color-naranja);
+    background-color: var(--color-blanco);
 }
 
 .grupo-campo textarea {
@@ -592,7 +630,7 @@ body {
 
 .grupo-campo small {
     display: block;
-    color: #666;
+    color: var(--color-texto-suave);
     margin-top: 4px;
     font-size: 0.85rem;
 }
@@ -621,12 +659,12 @@ body {
 }
 
 .acordeon details {
-    background-color: white;
+    background-color: var(--color-blanco);
     border-radius: 8px;
     margin-bottom: 12px;
-    /* Primary #E67E22 — acento superior institucional */
-    border-top: 4px solid #E67E22;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* Naranja institucional (--color-naranja) — acento superior institucional */
+    border-top: 4px solid var(--color-naranja);
+    box-shadow: 0 2px 8px var(--sombra-muy-suave);
     overflow: hidden;
 }
 
@@ -634,19 +672,19 @@ body {
     padding: 18px 25px;
     font-size: 1.1rem;
     font-weight: bold;
-    color: #2C3E50;
+    color: var(--color-azul-principal);
     cursor: pointer;
-    background-color: #F8F9FA;
+    background-color: var(--color-fondo-claro);
     list-style: none;
 }
 
 .acordeon summary:hover {
-    background-color: #eef2f4;
+    background-color: var(--color-fondo-hover-acordeon);
 }
 
 .acordeon summary::before {
     content: "▶ ";
-    color: #E67E22;
+    color: var(--color-naranja);
     font-size: 0.85rem;
 }
 
@@ -657,11 +695,11 @@ body {
 .acordeon .contenido-acordeon {
     padding: 20px 25px;
     line-height: 1.8;
-    color: #444;
+    color: var(--color-texto-parrafo);
 }
 
 .acordeon .contenido-acordeon strong {
-    color: #2C3E50;
+    color: var(--color-azul-principal);
 }
 
 .acordeon .contenido-acordeon ul {
@@ -683,9 +721,9 @@ body {
     max-width: 1100px;
     height: auto;
     border-radius: 12px;
-    /* Primary #E67E22 — acento superior institucional */
-    border-top: 5px solid #E67E22;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* Naranja institucional (--color-naranja) — acento superior institucional */
+    border-top: 5px solid var(--color-naranja);
+    box-shadow: 0 4px 12px var(--sombra-muy-suave);
 }
 
 .sede-info {
@@ -697,32 +735,32 @@ body {
 
 .sede-datos {
     flex: 1;
-    background-color: white;
+    background-color: var(--color-blanco);
     padding: 28px;
     border-radius: 12px;
-    /* Primary #E67E22 — acento superior institucional */
-    border-top: 5px solid #E67E22;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* Naranja institucional (--color-naranja) — acento superior institucional */
+    border-top: 5px solid var(--color-naranja);
+    box-shadow: 0 4px 12px var(--sombra-muy-suave);
 }
 
 .sede-datos h2 {
-    color: #2C3E50;
+    color: var(--color-azul-principal);
     margin-top: 0;
-    border-bottom: 3px solid #E67E22;
+    border-bottom: 3px solid var(--color-naranja);
     padding-bottom: 10px;
 }
 
 .sede-datos strong {
-    color: #2C3E50;
+    color: var(--color-azul-principal);
 }
 
 .sede-datos a {
-    color: #2C3E50;
+    color: var(--color-azul-principal);
     font-weight: bold;
 }
 
 .sede-datos a:hover {
-    color: #E67E22;
+    color: var(--color-naranja);
 }
 
 .sede-mapa {
@@ -730,8 +768,8 @@ body {
     min-height: 380px;
     border-radius: 12px;
     overflow: hidden;
-    border: 3px solid #E67E22;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 3px solid var(--color-naranja);
+    box-shadow: 0 4px 12px var(--sombra-muy-suave);
 }
 
 .sede-mapa iframe {
@@ -752,35 +790,35 @@ body {
 }
 
 .lista-archivos li {
-    background-color: white;
+    background-color: var(--color-blanco);
     margin-bottom: 12px;
     padding: 18px 25px;
     border-radius: 8px;
-    /* Primary #E67E22 — acento lateral institucional */
-    border-left: 5px solid #E67E22;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    /* Naranja institucional (--color-naranja) — acento lateral institucional */
+    border-left: 5px solid var(--color-naranja);
+    box-shadow: 0 2px 6px var(--sombra-ligera);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .lista-archivos li:hover {
-    background-color: #F8F9FA;
+    background-color: var(--color-fondo-claro);
 }
 
 .lista-archivos a {
-    color: #2C3E50;
+    color: var(--color-azul-principal);
     font-weight: bold;
     text-decoration: none;
 }
 
 .lista-archivos a:hover {
-    color: #E67E22;
+    color: var(--color-naranja);
 }
 
 .lista-archivos .tipo {
-    background-color: #2C3E50;
-    color: #F8F9FA;
+    background-color: var(--color-azul-principal);
+    color: var(--color-fondo-claro);
     font-size: 0.85rem;
     font-weight: bold;
     padding: 5px 10px;
@@ -801,9 +839,9 @@ body {
 .exito-icono {
     width: 90px;
     height: 90px;
-    /* Primary #E67E22 — ícono circular institucional */
-    background-color: #E67E22;
-    color: #F8F9FA;
+    /* Naranja institucional (--color-naranja) — ícono circular institucional */
+    background-color: var(--color-naranja);
+    color: var(--color-fondo-claro);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -813,13 +851,13 @@ body {
 }
 
 .exito h1 {
-    color: #2C3E50;
+    color: var(--color-azul-principal);
     font-size: 2.2rem;
     margin-bottom: 15px;
 }
 
 .exito p {
-    color: #444;
+    color: var(--color-texto-parrafo);
     font-size: 1.1rem;
     margin-bottom: 20px;
     line-height: 1.6;
@@ -838,12 +876,12 @@ body {
 
 .paso-card {
     position: relative;
-    background-color: white;
+    background-color: var(--color-blanco);
     border-radius: 12px;
     overflow: hidden;
-    /* Primary #E67E22 — acento superior institucional */
-    border-top: 5px solid #E67E22;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    /* Naranja institucional (--color-naranja) — acento superior institucional */
+    border-top: 5px solid var(--color-naranja);
+    box-shadow: 0 4px 12px var(--sombra-tarjeta);
 }
 
 .paso-card img {
@@ -851,7 +889,7 @@ body {
     height: 420px;
     object-fit: contain;
     display: block;
-    background-color: #ffffff;
+    background-color: var(--color-blanco);
     padding: 10px;
 }
 
@@ -862,8 +900,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(44, 62, 80, 0.92);
-    color: #F8F9FA;
+    background: var(--color-overlay-paso);
+    color: var(--color-fondo-claro);
     padding: 22px;
     display: flex;
     align-items: center;
@@ -878,19 +916,19 @@ body {
 }
 
 .paso-overlay p {
-    color: #F8F9FA;
+    color: var(--color-fondo-claro);
     font-size: 0.95rem;
     line-height: 1.5;
 }
 
 .paso-overlay a {
-    color: #E67E22;
+    color: var(--color-naranja);
     font-weight: bold;
     text-decoration: underline;
 }
 
 .paso-overlay a:hover {
-    color: #F8F9FA;
+    color: var(--color-fondo-claro);
 }
 
 /* ============================================================
@@ -898,8 +936,8 @@ body {
    ============================================================ */
 
 footer {
-    background-color: #0c2d57;
-    color: white;
+    background-color: var(--color-azul-titulos);
+    color: var(--color-blanco);
     text-align: center;
     padding: 25px 50px;
     margin-top: 40px;
@@ -907,7 +945,7 @@ footer {
 
 footer p {
     font-size: 0.95rem;
-    color: #ccc;
+    color: var(--color-texto-footer);
 }
 
 /* ============================================================
@@ -1135,14 +1173,14 @@ footer p {
         position: absolute;
         left: 12px;
         bottom: 12px;
-        background-color: #E67E22;
-        color: #F8F9FA;
+        background-color: var(--color-naranja);
+        color: var(--color-fondo-claro);
         padding: 6px 12px;
         border-radius: 20px;
         font-size: 0.80rem;
         font-weight: bold;
         z-index: 2;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 6px var(--sombra-media);
     }
 
     .paso-card:hover::after,
